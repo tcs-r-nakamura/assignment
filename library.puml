@@ -1,0 +1,34 @@
+@startuml class
+
+interface IDownload{
+    +download(): void
+
+}
+
+interface IPlayback{
+    +playback(): void
+}
+
+
+abstract class LibraryBase {
+  +void lending()
+  +void return()
+}
+
+class Books extends LibraryBase {
+
+}
+class EBooks extends Books{
+
+}
+
+class Magazine extends LibraryBase{
+
+}
+
+class DVD extends LibraryBase{
+
+}
+EBooks ..|> IDownload
+DVD ..|> IPlayback
+@enduml
