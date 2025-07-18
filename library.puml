@@ -1,34 +1,34 @@
 @startuml class
 
-interface IDownload{
+interface IDownloadable{
     +download(): void
 
 }
 
-interface IPlayback{
+interface IPlayable{
     +playback(): void
 }
 
 
-abstract class LibraryBase {
-  +void lending()
-  +void return()
+abstract class LibraryItem {
+  +void lendItem()
+  +void returnItem()
 }
 
-class Books extends LibraryBase {
+class Book extends LibraryItem {
 
 }
-class EBooks extends Books{
-
-}
-
-class Magazine extends LibraryBase{
+class EBook extends Book{
 
 }
 
-class DVD extends LibraryBase{
+class Magazine extends LibraryItem{
 
 }
-EBooks ..|> IDownload
-DVD ..|> IPlayback
+
+class DVD extends LibraryItem{
+
+}
+EBook ..|> IDownloadable
+DVD ..|> IPlayable
 @enduml
